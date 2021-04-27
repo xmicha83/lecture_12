@@ -30,12 +30,12 @@ def read_rows(file_name, row_number):
     """
     with open(file_name, "r", encoding="utf-8") as file:
         soubor = csv.reader(file)
-        # rows = []
-        for idx, line in enumerate(soubor):
+        rows = []
+        for line in soubor:
             row = [int(number) for number in line]
-    #         rows.append(row)
-    #
-    # return rows[row_number-1]
+            rows.append(row)
+
+    return rows[row_number-1]
 
 
 def selection_sort(number_array, direction="ascending"):
@@ -69,6 +69,8 @@ def bubble_sort(number_array):
         for j in range(len(number_array)-i-1):
             if number_array[j] > number_array[j+1]:
                 number_array[j], number_array[j+1] = number_array[j+1], number_array[j]
+
+    return number_array
 
 
 def main():
